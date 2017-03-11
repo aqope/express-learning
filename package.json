@@ -1,4 +1,8 @@
 {
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aqopee/express-learning.git"
+  },
   "name": "expressjs",
   "version": "1.0.0",
   "description": "Simple Web Page",
@@ -9,6 +13,7 @@
   "author": "Artur Paklin",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "serve-favicon": "^2.4.1"
   }
 }
