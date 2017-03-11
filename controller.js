@@ -1,21 +1,23 @@
 var controller = {
     routes: {
+        default: "something-default",
         home: 'something-home',
         contact: 'something-contact',
         test: 'test-test'
     },
     handle: function(app) {
+        var _this = this;
         app.get('*', function(req, res) {
             var url = req.url;
-            console.log(url);
             var urlParts = url.split('/');
-            console.log(urlParts);
-            if (typeof urlParts[1] != 'undefined') {
-                if (typeof this.routes[urlParts[1]] != 'undefined') {
-                    res.send(this.routes[urlParts[1]]);
+            if (urlParts[1] != '') {
+                if (typeof _this.routes['' + urlParts[1] + ''] != 'undefined') {
+                    res.send(_this.routes[urlParts[1]]);
                 } else {
                     res.send('404');
                 }
+            } else {
+                res.send(_this.routes.default);
             }
         });
     },
@@ -25,6 +27,9 @@ var controller = {
 
             }
         });
+    },
+    getData: function() {
+        return this.routes;
     }
 };
 
