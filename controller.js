@@ -1,17 +1,21 @@
 var controller = {
-    routes: [
-        '/home',
-        '/contact',
-        '/test',
-        '/'
-    ],
+    routes: {
+        home: 'something-home',
+        contact: 'something-contact',
+        test: 'test-test'
+    },
     handle: function(app) {
         app.get('*', function(req, res) {
             var url = req.url;
-            if (this.routes.includes(url)) {
-
-            } else {
-                res.send('<b>404 page</b>');
+            console.log(url);
+            var urlParts = url.split('/');
+            console.log(urlParts);
+            if (typeof urlParts[1] != 'undefined') {
+                if (typeof this.routes[urlParts[1]] != 'undefined') {
+                    res.send(this.routes[urlParts[1]]);
+                } else {
+                    res.send('404');
+                }
             }
         });
     },
