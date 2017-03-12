@@ -20,16 +20,6 @@ var controller = {
                 res.send(_this.routes.default);
             }
         });
-    },
-    checkInRoutes: function(url, routes) {
-        routes.forEach(function(elem) {
-            if (elem == url) {
-
-            }
-        });
-    },
-    getData: function() {
-        return this.routes;
     }
 };
 
